@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tahko Trip Countdown</title>
+<style>
+body{
+font-family:Arial;
+background:linear-gradient(135deg,#6dd5fa,#ffffff,#b2f7ef);
+text-align:center;
+padding:40px;
+}
+
+.box{
+background:white;
+padding:30px;
+border-radius:20px;
+display:inline-block;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+h1{
+font-size:40px;
+}
+
+time{
+font-size:50px;
+font-weight:bold;
+margin:20px;
+}
+
+.fun{
+font-size:20px;
+color:#555;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>🎿 Tahko Trip Countdown 🎿</h1>
+
+<div class="time" id="hours"></div>
+
+<div class="fun" id="funText"></div>
+
+</div>
+
+<script>
+
+const tripDate = new Date("2027-03-11T00:00:00");
+
+function update(){
+
+const now = new Date();
+
+const diff = tripDate - now;
+
+const hours = diff / (1000*60*60);
+
+document.getElementById("hours").innerText =
+hours.toFixed(2) + " hours until Tahko 🚗❄️";
+
+let msg = "";
+
+if(hours > 720) msg = "Plenty of time to plan the roadtrip playlist 🎵";
+else if(hours > 168) msg = "Tahko hype starting to build 🔥";
+else if(hours > 24) msg = "Almost there! Pack your skis 🎿";
+else if(hours > 0) msg = "Leaving soon!!!";
+else msg = "TAHKO DAY! 🍻";
+
+document.getElementById("funText").innerText = msg;
+
+}
+
+setInterval(update,1000);
+
+update();
+
+</script>
+
+</body>
+</html>
